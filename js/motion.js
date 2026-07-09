@@ -15,7 +15,7 @@
     });
   }
 
-  var reveals = document.querySelectorAll('.reveal');
+  var reveals = document.querySelectorAll('.reveal, .reveal-blur');
   if (reveals.length) {
     var observer = new IntersectionObserver(
       function (entries) {
@@ -32,5 +32,21 @@
     reveals.forEach(function (el) {
       observer.observe(el);
     });
+
+    // Safety net: an abrupt scroll jump (End key, scrollbar-track click) can
+    // skip an element's viewport-entry frame entirely, leaving it stuck
+    // invisible. If the page has scrolled past an element without it ever
+    // firing, reveal it once it's above the viewport.
+    window.addEventListener(
+      'scroll',
+      function () {
+        reveals.forEach(function (el) {
+          if (!el.classList.contains('visible') && el.getBoundingClientRect().bottom < 0) {
+            el.classList.add('visible');
+          }
+        });
+      },
+      { passive: true }
+    );
   }
 })();
