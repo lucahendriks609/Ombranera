@@ -15,13 +15,26 @@
     });
   }
 
+  function revealElement(el) {
+    var img = el.querySelector('img');
+    if (img && !img.complete) {
+      var show = function () {
+        el.classList.add('visible');
+      };
+      img.addEventListener('load', show, { once: true });
+      img.addEventListener('error', show, { once: true });
+      return;
+    }
+    el.classList.add('visible');
+  }
+
   var reveals = document.querySelectorAll('.reveal, .reveal-blur');
   if (reveals.length) {
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            revealElement(entry.target);
             observer.unobserve(entry.target);
           }
         });
@@ -42,7 +55,7 @@
       function () {
         reveals.forEach(function (el) {
           if (!el.classList.contains('visible') && el.getBoundingClientRect().bottom < 0) {
-            el.classList.add('visible');
+            revealElement(el);
           }
         });
       },

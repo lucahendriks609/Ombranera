@@ -24,6 +24,7 @@
         if (response.ok) {
           statusEl.textContent = successText;
           form.reset();
+          form.classList.add('submitted');
           if (navigator.vibrate) {
             navigator.vibrate(15);
           }
