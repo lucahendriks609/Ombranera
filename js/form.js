@@ -24,12 +24,21 @@
         if (response.ok) {
           statusEl.textContent = successText;
           form.reset();
+          if (navigator.vibrate) {
+            navigator.vibrate(15);
+          }
         } else {
           statusEl.textContent = errorText;
+          if (navigator.vibrate) {
+            navigator.vibrate([10, 40, 10]);
+          }
         }
       })
       .catch(function () {
         statusEl.textContent = errorText;
+        if (navigator.vibrate) {
+          navigator.vibrate([10, 40, 10]);
+        }
       })
       .finally(function () {
         button.disabled = false;

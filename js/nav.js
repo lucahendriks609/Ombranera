@@ -6,5 +6,8 @@
   toggle.addEventListener('click', function () {
     var isOpen = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (navigator.vibrate) {
+      navigator.vibrate(8);
+    }
   });
 })();
