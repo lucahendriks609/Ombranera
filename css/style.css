@@ -306,6 +306,7 @@ p {
 }
 
 .hero-wordmark {
+  position: relative;
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.25em;
@@ -313,6 +314,17 @@ p {
   font-weight: 500;
   margin: 0 0 0.6em;
   color: var(--text-primary);
+}
+
+.hero-wordmark::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--text-secondary);
+  opacity: 0;
+  transform: translateX(4px);
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .hero-tagline {
@@ -358,10 +370,31 @@ p {
 
   .hero-light {
     animation: drift 22s ease-in-out infinite alternate;
+    transition: opacity 0.5s ease;
   }
 
   body::before {
     animation: drift 40s ease-in-out infinite alternate;
+    transition: opacity 0.5s ease;
+  }
+
+  body.flicker::before {
+    opacity: 0.5;
+    transition: opacity 0.09s ease;
+  }
+
+  body.flicker .hero-light {
+    opacity: 0.45;
+    transition: opacity 0.09s ease;
+  }
+
+  .hero-wordmark::after {
+    transition: opacity 0.5s ease;
+  }
+
+  .hero-wordmark.ghost::after {
+    opacity: 0.3;
+    transition: opacity 0.06s ease;
   }
 
   @keyframes drift {
