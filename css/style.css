@@ -574,6 +574,12 @@ p {
   object-fit: cover;
   display: block;
   filter: grayscale(85%) contrast(1.05) brightness(0.95);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .confession-name {
