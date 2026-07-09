@@ -11,12 +11,23 @@
   <div class="page">
     <nav class="site-nav">
       <a class="nav-wordmark" href="/">Ombra Nera</a>
-      <ul class="nav-links">
-        <li><a href="/house/" aria-current="page">House</a></li>
-        <li><a href="/collection/">Collection</a></li>
-        <li><a href="/confessions/">Confessions</a></li>
-        <li><a href="/inner/">Inner Circle</a></li>
-      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/house/" aria-current="page">House</a></li>
+          <li><a href="/collection/">Collection</a></li>
+          <li><a href="/confessions/">Confessions</a></li>
+          <li><a href="/inner/">Inner Circle</a></li>
+        </ul>
+        <ul class="lang-switch">
+          <li><a href="/house/" aria-current="page">EN</a></li>
+          <li><a href="/nl/house/">NL</a></li>
+          <li><a href="/ro/house/">RO</a></li>
+          <li><a href="/it/house/">IT</a></li>
+        </ul>
+      </div>
     </nav>
 
     <main>
@@ -43,6 +54,7 @@
     </footer>
   </div>
 
+  <script src="/js/nav.js"></script>
   <script src="/js/motion.js"></script>
 </body>
 </html>

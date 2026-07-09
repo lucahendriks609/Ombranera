@@ -4,6 +4,8 @@
 
   var statusEl = document.getElementById('form-status');
   var button = form.querySelector('button');
+  var successText = statusEl.getAttribute('data-success') || 'Request received.';
+  var errorText = statusEl.getAttribute('data-error') || 'Something went wrong. Try again.';
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -20,14 +22,14 @@
     })
       .then(function (response) {
         if (response.ok) {
-          statusEl.textContent = 'Request received.';
+          statusEl.textContent = successText;
           form.reset();
         } else {
-          statusEl.textContent = 'Something went wrong. Try again.';
+          statusEl.textContent = errorText;
         }
       })
       .catch(function () {
-        statusEl.textContent = 'Something went wrong. Try again.';
+        statusEl.textContent = errorText;
       })
       .finally(function () {
         button.disabled = false;
