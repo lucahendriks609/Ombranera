@@ -6,6 +6,44 @@
   --font-body: 'EB Garamond', serif;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.35s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-transition-overlay {
+    transition: opacity 0.24s ease;
+  }
+
+  .page-transition-overlay.active {
+    opacity: 1;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
