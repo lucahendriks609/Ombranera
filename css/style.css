@@ -505,6 +505,13 @@ p {
   z-index: 2;
 }
 
+@media (max-width: 720px) {
+  .hero {
+    height: 76vh;
+    height: 76svh;
+  }
+}
+
 /* Motion: reduced by default, enhanced when the user allows it */
 
 @media (prefers-reduced-motion: no-preference) {
