@@ -13,6 +13,21 @@
       if (wordmark) wordmark.classList.add('visible');
       if (tagline) tagline.classList.add('visible');
     });
+
+    var cursorGlow = hero.querySelector('.hero-cursor-glow');
+    if (cursorGlow && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      hero.addEventListener('mousemove', function (event) {
+        var rect = hero.getBoundingClientRect();
+        var x = ((event.clientX - rect.left) / rect.width) * 100;
+        var y = ((event.clientY - rect.top) / rect.height) * 100;
+        cursorGlow.style.backgroundPosition = x + '% ' + y + '%';
+        cursorGlow.classList.add('active');
+      });
+
+      hero.addEventListener('mouseleave', function () {
+        cursorGlow.classList.remove('active');
+      });
+    }
   }
 
   function revealElement(el) {

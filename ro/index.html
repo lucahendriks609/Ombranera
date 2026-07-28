@@ -17,6 +17,7 @@
   <link rel="alternate" hreflang="nl" href="https://ombranera.com/nl/">
   <link rel="alternate" hreflang="ro" href="https://ombranera.com/ro/">
   <link rel="alternate" hreflang="it" href="https://ombranera.com/it/">
+  <link rel="alternate" hreflang="fr" href="https://ombranera.com/fr/">
   <link rel="alternate" hreflang="x-default" href="https://ombranera.com/">
   <meta name="description" content="A Signature of Dark Royalty.">
   <meta name="color-scheme" content="dark">
@@ -46,18 +47,23 @@
           <li><a href="/ro/confessions/">Confesiuni</a></li>
           <li><a href="/ro/inner/">Inner Circle</a></li>
         </ul>
-        <ul class="lang-switch">
-          <li><a href="/">EN</a></li>
-          <li><a href="/nl/">NL</a></li>
-          <li><a href="/ro/" aria-current="page">RO</a></li>
-          <li><a href="/it/">IT</a></li>
-        </ul>
+        <div class="lang-dropdown">
+          <button class="lang-trigger" id="lang-trigger" aria-expanded="false" aria-controls="lang-menu" aria-haspopup="true">RO <span class="lang-arrow" aria-hidden="true">&#9662;</span></button>
+          <ul class="lang-menu" id="lang-menu">
+            <li><a href="/">EN</a></li>
+            <li><a href="/nl/">NL</a></li>
+            <li><a href="/ro/" aria-current="page">RO</a></li>
+            <li><a href="/it/">IT</a></li>
+            <li><a href="/fr/">FR</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
     <main>
       <section class="hero">
         <div class="hero-light" aria-hidden="true"></div>
+        <div class="hero-cursor-glow" aria-hidden="true"></div>
         <div class="hero-content">
           <h1 class="hero-wordmark">Ombra Nera</h1>
           <p class="hero-tagline">A Signature of Dark Royalty</p>
